@@ -11,7 +11,7 @@
 <meta content="website" property="og:type"/>
 <meta content="assets/paper-selected/g-sefi-poster.png" property="og:image"/>
 <link href="assets/sefi-icon.png" rel="icon"/>
-<link href="styles.css?v=layout-polish-1" rel="stylesheet"/>
+<link href="styles.css?v=method-stack-1" rel="stylesheet"/>
 </head>
 <body>
 <header aria-label="Primary navigation" class="site-header">
@@ -157,31 +157,37 @@
 <div class="section-inner method-layout">
 <div class="method-copy">
 <p class="section-kicker">Method</p>
-<h2 id="method-title">Dual timesteps condition a single DiT denoiser.</h2>
+<h2 id="method-title">Semantic latents lead texture denoising.</h2>
 <p>
-              At each denoising step, SeFi-Image feeds a noisy composite latent, separate semantic and texture
-              timesteps, and text embeddings into the DiT. The model predicts velocity for both latent streams under
-              the same text condition.
+              Semantic-First Diffusion separates high-level structure from texture details and lets the semantic
+              stream move ahead by a small timestep offset. Texture generation then follows the semantic trajectory
+              instead of denoising both signals in lockstep.
             </p>
 <div class="method-points">
 <article>
-<h3>Noisy composite latent</h3>
-<p>Semantic and texture latents enter the model together as a composite state.</p>
+<h3>Stage I: semantic initialization</h3>
+<p>Semantic latents denoise first, giving the model an early structural anchor.</p>
 </article>
 <article>
-<h3>Dual timesteps</h3>
-<p>Separate timesteps let semantic structure lead texture refinement.</p>
+<h3>Stage II: asynchronous generation</h3>
+<p>Semantic and texture streams denoise together, with semantics leading textures by a temporal offset.</p>
 </article>
 <article>
-<h3>Joint velocity prediction</h3>
-<p>The DiT predicts the denoising velocity for both latent streams.</p>
+<h3>Stage III: texture completion</h3>
+<p>Texture latents finish the last refinement stage before the final image is decoded.</p>
 </article>
 </div>
 </div>
+<div class="method-visuals">
+<figure class="method-figure method-figure-primary">
+<img alt="Semantic-First Diffusion stages showing semantic latents denoising before texture latents." loading="lazy" src="assets/sfd-illustration.png"/>
+<figcaption>Semantic and texture streams follow separate denoising trajectories.</figcaption>
+</figure>
 <figure class="method-figure">
 <img alt="Overall SeFi-Image framework diagram." loading="lazy" src="assets/sfd-framework.png"/>
-<figcaption>DiT denoising with a noisy composite latent, dual timesteps, and text embeddings.</figcaption>
+<figcaption>The DiT receives the composite latent, dual timesteps, and text embeddings at each step.</figcaption>
 </figure>
+</div>
 </div>
 </section>
 <section aria-labelledby="results-title" class="section results-section" id="results">

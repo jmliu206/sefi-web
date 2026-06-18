@@ -508,6 +508,10 @@ figcaption {
   align-items: start;
 }
 
+.method-layout > * {
+  min-width: 0;
+}
+
 .method-copy > p:not(.section-kicker) {
   margin-top: 14px;
   font-size: 1.02rem;
@@ -531,6 +535,12 @@ figcaption {
   font-size: 0.94rem;
 }
 
+.method-visuals {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
 .method-figure {
   background: #fff;
 }
@@ -538,6 +548,10 @@ figcaption {
 .method-figure img {
   width: 100%;
   background: #fff;
+}
+
+.method-figure-primary img {
+  padding: 12px 14px 4px;
 }
 
 .results-section {
