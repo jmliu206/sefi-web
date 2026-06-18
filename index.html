@@ -11,7 +11,7 @@
 <meta content="website" property="og:type"/>
 <meta content="assets/paper-selected/g-sefi-poster.png" property="og:image"/>
 <link href="assets/sefi-icon.png" rel="icon"/>
-<link href="styles.css?v=resource-actions-2" rel="stylesheet"/>
+<link href="styles.css?v=layout-polish-1" rel="stylesheet"/>
 </head>
 <body>
 <header aria-label="Primary navigation" class="site-header">
@@ -30,7 +30,6 @@
 <section aria-labelledby="hero-title" class="hero">
 <div class="section-inner hero-layout">
 <div class="hero-copy">
-<p class="eyebrow">Text-to-Image Foundation Model</p>
 <h1 id="hero-title">SeFi-Image</h1>
 <p class="subtitle">A Text-to-Image Foundation Model with Semantic-First Diffusion</p>
 <p class="authors">SeFi-Team</p>
@@ -158,30 +157,30 @@
 <div class="section-inner method-layout">
 <div class="method-copy">
 <p class="section-kicker">Method</p>
-<h2 id="method-title">Semantic latents guide texture generation.</h2>
+<h2 id="method-title">Dual timesteps condition a single DiT denoiser.</h2>
 <p>
-              SeFi-Image models image latents as two connected streams: one for semantic structure and one for texture.
-              The semantic stream is denoised slightly earlier, then acts as a structural anchor while texture details
-              are refined.
+              At each denoising step, SeFi-Image feeds a noisy composite latent, separate semantic and texture
+              timesteps, and text embeddings into the DiT. The model predicts velocity for both latent streams under
+              the same text condition.
             </p>
 <div class="method-points">
 <article>
-<h3>Separate signals</h3>
-<p>Semantic and texture information are represented separately instead of being forced into one schedule.</p>
+<h3>Noisy composite latent</h3>
+<p>Semantic and texture latents enter the model together as a composite state.</p>
 </article>
 <article>
-<h3>Asynchronous denoising</h3>
-<p>Semantics stay ahead of texture, matching the coarse-to-fine nature of image generation.</p>
+<h3>Dual timesteps</h3>
+<p>Separate timesteps let semantic structure lead texture refinement.</p>
 </article>
 <article>
-<h3>No extra sampling steps</h3>
-<p>The offset is implemented in the timestep schedule, so the total number of denoising steps stays fixed.</p>
+<h3>Joint velocity prediction</h3>
+<p>The DiT predicts the denoising velocity for both latent streams.</p>
 </article>
 </div>
 </div>
 <figure class="method-figure">
 <img alt="Overall SeFi-Image framework diagram." loading="lazy" src="assets/sfd-framework.png"/>
-<figcaption>Overall framework of SeFi-Image.</figcaption>
+<figcaption>DiT denoising with a noisy composite latent, dual timesteps, and text embeddings.</figcaption>
 </figure>
 </div>
 </section>
@@ -217,7 +216,6 @@
 <span>Z-Image</span><strong>0.84</strong><i></i>
 </div>
 </div>
-<p class="benchmark-note">The 1B and 2B variants both reach 0.87 in the paper table.</p>
 </article>
 <article class="benchmark-card">
 <div class="benchmark-card-head">
@@ -267,7 +265,6 @@
 <span>SeFi-Image-5B</span><strong>87.27</strong><i></i>
 </div>
 </div>
-<p class="benchmark-note">SeFi-Image is competitive here; the 1B and 2B variants stay within one point of the 5B score.</p>
 </article>
 <article class="benchmark-card">
 <div class="benchmark-card-head">
@@ -337,7 +334,6 @@
 <span>JoyAI-Image</span><strong>0.5210</strong><i></i>
 </div>
 </div>
-<p class="benchmark-note">SeFi-Image ranks second overall, close to Qwen-Image and above Z-Image.</p>
 </article>
 </div>
 </div>
@@ -346,7 +342,7 @@
 <div class="section-inner">
 <div class="section-heading">
 <p class="section-kicker">Showcases</p>
-<h2 id="showcases-title">Generation across scenes, text, anime, style, and portraits.</h2>
+<h2 id="showcases-title">Generation across five visual domains.</h2>
 <p>
               Qualitative examples cover the main visual categories in the paper: natural scenes, text-rich
               layouts, character images, stylized generation, and portraits.
@@ -355,7 +351,6 @@
 <div class="showcase-lanes">
 <article class="showcase-lane">
 <div class="showcase-lane-heading">
-<p class="section-kicker">Scene</p>
 <h3>Scene Composition</h3>
 <p>Wide natural scenes, weather, cities, animals, and free-aspect landscape framing.</p>
 </div>
@@ -373,7 +368,6 @@
 </article>
 <article class="showcase-lane">
 <div class="showcase-lane-heading">
-<p class="section-kicker">Text-Rich</p>
 <h3>Text-Rich Generation</h3>
 <p>Posters, signs, labels, maps, menus, and bilingual layouts with readable text.</p>
 </div>
@@ -397,7 +391,6 @@
 </article>
 <article class="showcase-lane">
 <div class="showcase-lane-heading">
-<p class="section-kicker">Anime</p>
 <h3>Anime Characters</h3>
 <p>Character-focused generation across close-ups, full-body layouts, fantasy scenes, and environmental shots.</p>
 </div>
@@ -416,7 +409,6 @@
 </article>
 <article class="showcase-lane">
 <div class="showcase-lane-heading">
-<p class="section-kicker">Style</p>
 <h3>Style Diversity</h3>
 <p>Illustration, ink painting, plush toy, sticker sheet, sketch, and graphic-design styles.</p>
 </div>
@@ -435,7 +427,6 @@
 </article>
 <article class="showcase-lane">
 <div class="showcase-lane-heading">
-<p class="section-kicker">Portrait</p>
 <h3>Portraits</h3>
 <p>Close-up and environmental portraits with varied lighting, pose, material, and composition.</p>
 </div>

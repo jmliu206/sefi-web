@@ -14,7 +14,7 @@
   --gold: #946f16;
   --dark: #11171d;
   --shadow: 0 18px 45px rgba(18, 24, 30, 0.11);
-  --max: 1180px;
+  --max: 1240px;
 }
 
 * {
@@ -121,7 +121,7 @@ button {
 }
 
 .hero {
-  padding: 96px 28px 62px;
+  padding: 88px 28px 60px;
   background:
     linear-gradient(180deg, rgba(0, 107, 98, 0.08), rgba(0, 107, 98, 0) 38%),
     var(--surface);
@@ -142,7 +142,7 @@ button {
 
 .hero-layout {
   display: grid;
-  gap: 34px;
+  gap: 30px;
 }
 
 .hero-copy {
@@ -151,7 +151,6 @@ button {
   text-align: center;
 }
 
-.eyebrow,
 .section-kicker {
   color: var(--teal);
   font-size: 0.78rem;
@@ -161,7 +160,6 @@ button {
 }
 
 .hero h1 {
-  margin-top: 12px;
   color: var(--ink);
   font-size: 5.05rem;
   line-height: 0.95;
@@ -244,12 +242,12 @@ button {
 
 .hero-stage {
   display: flex;
-  gap: 14px;
-  width: min(1180px, 100%);
+  gap: 16px;
+  width: min(1280px, 100%);
   max-width: 100%;
-  margin: 24px auto 0;
+  margin: 30px auto 0;
   overflow-x: auto;
-  padding: 4px 0 18px;
+  padding: 4px 0 20px;
   scroll-padding-inline: 2px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -310,8 +308,8 @@ button {
 
 .hero-tile img {
   width: auto;
-  height: 320px;
-  max-width: min(560px, 82vw);
+  height: 390px;
+  max-width: min(700px, 88vw);
   background: #f6f8f7;
 }
 
@@ -343,6 +341,10 @@ button {
 .section-heading {
   max-width: 850px;
   margin-bottom: 34px;
+}
+
+.showcase-section .section-heading {
+  max-width: 760px;
 }
 
 .section-heading p:not(.section-kicker) {
@@ -386,22 +388,18 @@ figcaption {
 }
 
 .showcase-lane-heading {
-  display: grid;
-  grid-template-columns: minmax(210px, 0.34fr) minmax(0, 0.66fr);
-  gap: 22px;
-  align-items: end;
+  max-width: 760px;
   margin-bottom: 16px;
 }
 
 .showcase-lane-heading h3 {
-  margin-top: 10px;
   color: var(--ink);
   font-size: 1.55rem;
   line-height: 1.18;
 }
 
-.showcase-lane-heading p:not(.section-kicker) {
-  margin-top: 12px;
+.showcase-lane-heading p {
+  margin-top: 8px;
   font-size: 1rem;
 }
 
@@ -421,7 +419,7 @@ figcaption {
 }
 
 .hero-stage.showcase-track {
-  margin: 24px auto 0;
+  margin: 30px auto 0;
 }
 
 .showcase-track::-webkit-scrollbar {
@@ -448,10 +446,10 @@ figcaption {
   width: auto;
 }
 
-.showcase-card img {
+.showcase-lanes .showcase-card img {
   width: auto;
-  height: 320px;
-  max-width: min(520px, 82vw);
+  height: 340px;
+  max-width: min(560px, 84vw);
   background: #f6f8f7;
 }
 
@@ -648,12 +646,6 @@ figcaption {
   color: var(--mint);
 }
 
-.benchmark-note {
-  margin-top: 14px;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 0.88rem;
-}
-
 .citation-section {
   background: var(--surface);
 }
@@ -746,11 +738,6 @@ pre {
     grid-template-columns: 1fr;
   }
 
-  .showcase-lane-heading {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
   .highlight-grid,
   .benchmark-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -789,8 +776,8 @@ pre {
   }
 
   .hero-tile img {
-    height: 240px;
-    max-width: 78vw;
+    height: 260px;
+    max-width: 84vw;
   }
 
   .section {
@@ -805,9 +792,9 @@ pre {
     font-size: 1.32rem;
   }
 
-  .showcase-card img {
-    height: 240px;
-    max-width: 78vw;
+  .showcase-lanes .showcase-card img {
+    height: 250px;
+    max-width: 84vw;
   }
 
   .highlight-grid,
