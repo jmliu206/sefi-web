@@ -1,0 +1,481 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>SeFi-Image | Semantic-First Diffusion</title>
+<meta content="Project page for SeFi-Image, a text-to-image foundation model built with Semantic-First Diffusion." name="description"/>
+<meta content="SeFi-Image" property="og:title"/>
+<meta content="A Text-to-Image Foundation Model with Semantic-First Diffusion." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/paper-selected/g-sefi-poster.png" property="og:image"/>
+<link href="assets/sefi-icon.png" rel="icon"/>
+<link href="styles.css?v=teaser-horizontal-2" rel="stylesheet"/>
+</head>
+<body>
+<header aria-label="Primary navigation" class="site-header">
+<a aria-label="SeFi-Image home" class="brand" href="#top">
+<img alt="" height="36" src="assets/sefi-icon.png" width="30"/>
+<span>SeFi-Image</span>
+</a>
+<nav class="nav-links">
+<a href="#method">Method</a>
+<a href="#results">Benchmarks</a>
+<a href="#showcases">Showcases</a>
+<a href="#citation">Citation</a>
+</nav>
+</header>
+<main id="top">
+<section aria-labelledby="hero-title" class="hero">
+<div class="section-inner hero-layout">
+<div class="hero-copy">
+<p class="eyebrow">Text-to-Image Foundation Model</p>
+<h1 id="hero-title">SeFi-Image</h1>
+<p class="subtitle">A Text-to-Image Foundation Model with Semantic-First Diffusion</p>
+<p class="authors">SeFi-Team</p>
+<div aria-label="Project resources" class="hero-actions">
+<a class="action action-primary" href="assets/sefi-image-paper.pdf" rel="noreferrer" target="_blank">Paper</a>
+<a class="action" href="#citation">BibTeX</a>
+</div>
+<div aria-label="SeFi-Image highlights" class="hero-badges">
+<span>semantic-first denoising</span>
+<span>high-fidelity texture latent</span>
+<span>1B / 2B / 5B variants</span>
+</div>
+</div>
+<div aria-label="SeFi-Image paper-selected teaser gallery" class="hero-showreel hero-stage showcase-track">
+<figure class="hero-tile showcase-card">
+<a aria-label="Open SEFI poster full image" class="image-link" href="assets/paper-selected/g-sefi-poster.png" rel="noreferrer" target="_blank">
+<img alt="SEFI-IMAGE semantic-first texture-next poster." loading="eager" src="assets/paper-selected/g-sefi-poster.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open mask close-up full image" class="image-link" href="assets/paper-selected/c-mask-closeup.png" rel="noreferrer" target="_blank">
+<img alt="Vivid mask close-up image." loading="eager" src="assets/paper-selected/c-mask-closeup.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open market dessert table full image" class="image-link" href="assets/paper-selected/g-market-dessert-table.png" rel="noreferrer" target="_blank">
+<img alt="Outdoor dessert table image." loading="eager" src="assets/paper-selected/g-market-dessert-table.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open Salt air therapy full image" class="image-link" href="assets/paper-selected/c-salt-air-therapy.png" rel="noreferrer" target="_blank">
+<img alt="Salt air therapy text layout image." loading="eager" src="assets/paper-selected/c-salt-air-therapy.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open fashion turnaround full image" class="image-link" href="assets/paper-selected/c-fashion-turnaround.png" rel="noreferrer" target="_blank">
+<img alt="Fashion turnaround image." loading="eager" src="assets/paper-selected/c-fashion-turnaround.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open ice lake full image" class="image-link" href="assets/paper-selected/g-ice-lake-wide.png" rel="noreferrer" target="_blank">
+<img alt="Wide ice lake landscape image." loading="lazy" src="assets/paper-selected/g-ice-lake-wide.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open candy riot full image" class="image-link" href="assets/paper-selected/c-candy-riot.png" rel="noreferrer" target="_blank">
+<img alt="Colorful candy riot image." loading="lazy" src="assets/paper-selected/c-candy-riot.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open golden throne full image" class="image-link" href="assets/paper-selected/g-golden-throne.png" rel="noreferrer" target="_blank">
+<img alt="Golden throne interior image." loading="lazy" src="assets/paper-selected/g-golden-throne.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open lantern river full image" class="image-link" href="assets/paper-selected/c-lantern-river.png" rel="noreferrer" target="_blank">
+<img alt="Lantern river text-rich image." loading="lazy" src="assets/paper-selected/c-lantern-river.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open flower cat full image" class="image-link" href="assets/paper-selected/c-flower-cat.png" rel="noreferrer" target="_blank">
+<img alt="Cat with flowers image." loading="lazy" src="assets/paper-selected/c-flower-cat.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open neon illustration full image" class="image-link" href="assets/paper-selected/c-neon-illustration.png" rel="noreferrer" target="_blank">
+<img alt="Neon illustration image." loading="lazy" src="assets/paper-selected/c-neon-illustration.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open season eyes full image" class="image-link" href="assets/paper-selected/g-season-eyes.png" rel="noreferrer" target="_blank">
+<img alt="Season eyes character image." loading="lazy" src="assets/paper-selected/g-season-eyes.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open robot room full image" class="image-link" href="assets/paper-selected/g-robot-room.png" rel="noreferrer" target="_blank">
+<img alt="Robot room image." loading="lazy" src="assets/paper-selected/g-robot-room.png"/>
+</a>
+</figure>
+<figure class="hero-tile showcase-card">
+<a aria-label="Open waterfall full image" class="image-link" href="assets/paper-selected/g-waterfall.png" rel="noreferrer" target="_blank">
+<img alt="Waterfall image." loading="lazy" src="assets/paper-selected/g-waterfall.png"/>
+</a>
+</figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="highlights-title" class="section highlights-section">
+<div class="section-inner">
+<div class="section-heading">
+<p class="section-kicker">Highlights</p>
+<h2 id="highlights-title">Three things SeFi-Image is built to show.</h2>
+</div>
+<div class="highlight-grid">
+<article class="highlight-card">
+<span>01</span>
+<h3>SFD at foundation-model scale</h3>
+<p>
+                SeFi-Image brings semantic-first diffusion from smaller class-conditional settings into high-resolution
+                text-to-image generation with 1B, 2B, and 5B model variants.
+              </p>
+</article>
+<article class="highlight-card">
+<span>02</span>
+<h3>Reconstruction-generation trade-off</h3>
+<p>
+                The semantic stream gives texture generation a cleaner structural anchor, allowing stronger
+                reconstruction fidelity without making diffusion training harder.
+              </p>
+</article>
+<article class="highlight-card">
+<span>03</span>
+<h3>Competitive results with less compute</h3>
+<p>
+                The 5B model is trained with 125K A800 GPU hours and remains strong across GenEval, DPG,
+                LongTextBench, CVTG-2K, and OneIG benchmarks.
+              </p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="method-title" class="section method-section" id="method">
+<div class="section-inner method-layout">
+<div class="method-copy">
+<p class="section-kicker">Method</p>
+<h2 id="method-title">Semantic latents guide texture generation.</h2>
+<p>
+              SeFi-Image models image latents as two connected streams: one for semantic structure and one for texture.
+              The semantic stream is denoised slightly earlier, then acts as a structural anchor while texture details
+              are refined.
+            </p>
+<div class="method-points">
+<article>
+<h3>Separate signals</h3>
+<p>Semantic and texture information are represented separately instead of being forced into one schedule.</p>
+</article>
+<article>
+<h3>Asynchronous denoising</h3>
+<p>Semantics stay ahead of texture, matching the coarse-to-fine nature of image generation.</p>
+</article>
+<article>
+<h3>No extra sampling steps</h3>
+<p>The offset is implemented in the timestep schedule, so the total number of denoising steps stays fixed.</p>
+</article>
+</div>
+</div>
+<figure class="method-figure">
+<img alt="Overall SeFi-Image framework diagram." loading="lazy" src="assets/sfd-framework.png"/>
+<figcaption>Overall framework of SeFi-Image.</figcaption>
+</figure>
+</div>
+</section>
+<section aria-labelledby="results-title" class="section results-section" id="results">
+<div class="section-inner">
+<div class="section-heading">
+<p class="section-kicker">Benchmarks</p>
+<h2 id="results-title">Performance across the main evaluation axes.</h2>
+<p>
+              Each card names the ability being measured and shows the closest public baselines reported in the paper.
+            </p>
+</div>
+<div class="benchmark-grid">
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">0.88</span>
+<div>
+<h3>GenEval</h3>
+<p>Object-focused prompt following and compositional reasoning.</p>
+</div>
+</div>
+<div aria-label="GenEval comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>SeFi-Image-5B</span><strong>0.88</strong><i></i>
+</div>
+<div class="score-row" style="--w: 99%">
+<span>Qwen-Image</span><strong>0.87</strong><i></i>
+</div>
+<div class="score-row" style="--w: 97%">
+<span>FLUX.2-Klein-9B</span><strong>0.85</strong><i></i>
+</div>
+<div class="score-row" style="--w: 95%">
+<span>Z-Image</span><strong>0.84</strong><i></i>
+</div>
+</div>
+<p class="benchmark-note">The 1B and 2B variants both reach 0.87 in the paper table.</p>
+</article>
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">87.27</span>
+<div>
+<h3>DPG-Bench</h3>
+<p>Detailed prompt following over objects, relations, attributes, and global composition.</p>
+</div>
+</div>
+<div aria-label="DPG-Bench comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>Qwen-Image</span><strong>88.32</strong><i></i>
+</div>
+<div class="score-row" style="--w: 100%">
+<span>Z-Image</span><strong>88.14</strong><i></i>
+</div>
+<div class="score-row" style="--w: 100%">
+<span>JoyAI-Image</span><strong>88.05</strong><i></i>
+</div>
+<div class="score-row" style="--w: 99%">
+<span>SeFi-Image-5B</span><strong>87.27</strong><i></i>
+</div>
+</div>
+<p class="benchmark-note">SeFi-Image is competitive here; the 1B and 2B variants stay within one point of the 5B score.</p>
+</article>
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">0.978</span>
+<div>
+<h3>LongTextBench</h3>
+<p>Long text rendering across English and Chinese prompts.</p>
+</div>
+</div>
+<div aria-label="LongTextBench comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>SeFi-Image-5B</span><strong>0.978</strong><i></i>
+</div>
+<div class="score-row" style="--w: 98%">
+<span>JoyAI-Image</span><strong>0.963</strong><i></i>
+</div>
+<div class="score-row" style="--w: 98%">
+<span>Qwen-Image-2512</span><strong>0.960</strong><i></i>
+</div>
+<div class="score-row" style="--w: 96%">
+<span>Qwen-Image</span><strong>0.945</strong><i></i>
+</div>
+<div class="score-row" style="--w: 96%">
+<span>Z-Image</span><strong>0.936</strong><i></i>
+</div>
+</div>
+</article>
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">0.895</span>
+<div>
+<h3>CVTG-2K</h3>
+<p>Character-level visual text generation, reported here as word accuracy.</p>
+</div>
+</div>
+<div aria-label="CVTG-2K comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>SeFi-Image-5B</span><strong>0.895</strong><i></i>
+</div>
+<div class="score-row" style="--w: 98%">
+<span>JoyAI-Image</span><strong>0.874</strong><i></i>
+</div>
+<div class="score-row" style="--w: 97%">
+<span>Z-Image</span><strong>0.867</strong><i></i>
+</div>
+<div class="score-row" style="--w: 93%">
+<span>Qwen-Image</span><strong>0.829</strong><i></i>
+</div>
+</div>
+</article>
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">0.5606</span>
+<div>
+<h3>OneIG-EN</h3>
+<p>Omni-dimensional English instruction generation across alignment, text, reasoning, style, and diversity.</p>
+</div>
+</div>
+<div aria-label="OneIG-EN comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>SeFi-Image-5B</span><strong>0.5606</strong><i></i>
+</div>
+<div class="score-row" style="--w: 97%">
+<span>Z-Image</span><strong>0.5460</strong><i></i>
+</div>
+<div class="score-row" style="--w: 97%">
+<span>JoyAI-Image</span><strong>0.5420</strong><i></i>
+</div>
+<div class="score-row" style="--w: 96%">
+<span>Qwen-Image</span><strong>0.5390</strong><i></i>
+</div>
+</div>
+</article>
+<article class="benchmark-card">
+<div class="benchmark-card-head">
+<span class="benchmark-score">0.5379</span>
+<div>
+<h3>OneIG-ZH</h3>
+<p>Chinese instruction generation over alignment, text, reasoning, style, and diversity.</p>
+</div>
+</div>
+<div aria-label="OneIG-ZH comparison" class="score-list">
+<div class="score-row is-lead" style="--w: 100%">
+<span>Qwen-Image</span><strong>0.5480</strong><i></i>
+</div>
+<div class="score-row" style="--w: 98%">
+<span>SeFi-Image-5B</span><strong>0.5379</strong><i></i>
+</div>
+<div class="score-row" style="--w: 98%">
+<span>Z-Image</span><strong>0.5350</strong><i></i>
+</div>
+<div class="score-row" style="--w: 95%">
+<span>JoyAI-Image</span><strong>0.5210</strong><i></i>
+</div>
+</div>
+<p class="benchmark-note">SeFi-Image ranks second overall, close to Qwen-Image and above Z-Image.</p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="showcases-title" class="section showcase-section" id="showcases">
+<div class="section-inner">
+<div class="section-heading">
+<p class="section-kicker">Showcases</p>
+<h2 id="showcases-title">Generation across scenes, text, anime, style, and portraits.</h2>
+<p>
+              Qualitative examples cover the main visual categories in the paper: natural scenes, text-rich
+              layouts, character images, stylized generation, and portraits.
+            </p>
+</div>
+<div class="showcase-lanes">
+<article class="showcase-lane">
+<div class="showcase-lane-heading">
+<p class="section-kicker">Scene</p>
+<h3>Scene Composition</h3>
+<p>Wide natural scenes, weather, cities, animals, and free-aspect landscape framing.</p>
+</div>
+<div aria-label="Scene Composition examples" class="showcase-track">
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-mountain-ridge.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: mountain ridge." height="720" loading="eager" src="assets/showcase/scene/scene-mountain-ridge.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-rainy-harbor.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: rainy harbor." height="768" loading="eager" src="assets/showcase/scene/scene-rainy-harbor.png" width="1360"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-desert-reflection.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: desert reflection." height="768" loading="eager" src="assets/showcase/scene/scene-desert-reflection.png" width="1360"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-alpine-lake.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: alpine lake." height="720" loading="lazy" src="assets/showcase/scene/scene-alpine-lake.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-city-rooftop.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: city rooftop." height="832" loading="lazy" src="assets/showcase/scene/scene-city-rooftop.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-wild-horse.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: wild horse." height="1024" loading="lazy" src="assets/showcase/scene/scene-wild-horse.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-forest-valley.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: forest valley." height="864" loading="lazy" src="assets/showcase/scene/scene-forest-valley.png" width="1152"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-starry-coast.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: starry coast." height="1024" loading="lazy" src="assets/showcase/scene/scene-starry-coast.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/scene/scene-frozen-mountain.png" rel="noreferrer" target="_blank"><img alt="Scene composition example: frozen mountain." height="1280" loading="lazy" src="assets/showcase/scene/scene-frozen-mountain.png" width="720"/></a></figure>
+</div>
+</article>
+<article class="showcase-lane">
+<div class="showcase-lane-heading">
+<p class="section-kicker">Text-Rich</p>
+<h3>Text-Rich Generation</h3>
+<p>Posters, signs, labels, maps, menus, and bilingual layouts with readable text.</p>
+</div>
+<div aria-label="Text-Rich Generation examples" class="showcase-track">
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-museum-plaque.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: museum plaque." height="720" loading="eager" src="assets/showcase/text/text-museum-plaque.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-farm-stall.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: farm stall." height="832" loading="eager" src="assets/showcase/text/text-farm-stall.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-nocturne-cover.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: nocturne cover." height="896" loading="eager" src="assets/showcase/text/text-nocturne-cover.png" width="1200"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-plum-rain-tea.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: plum rain tea." height="832" loading="lazy" src="assets/showcase/text/text-plum-rain-tea.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-mountain-after-rain.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: mountain after rain." height="896" loading="lazy" src="assets/showcase/text/text-mountain-after-rain.png" width="1200"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-paris-clay-open.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: Paris clay open." height="832" loading="lazy" src="assets/showcase/text/text-paris-clay-open.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-trust-the-pace.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: trust the pace." height="1024" loading="lazy" src="assets/showcase/text/text-trust-the-pace.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-sky-orchard-map.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: sky orchard map." height="1248" loading="lazy" src="assets/showcase/text/text-sky-orchard-map.png" width="832"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-read-for-morning.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: read for the morning poster." height="1024" loading="lazy" src="assets/showcase/text/text-read-for-morning.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-tonkotsu-ramen.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: tonkotsu ramen." height="1024" loading="lazy" src="assets/showcase/text/text-tonkotsu-ramen.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-turbo-room-rally.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: turbo room rally." height="1200" loading="lazy" src="assets/showcase/text/text-turbo-room-rally.png" width="896"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-vaster-garden-house.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: garden house sign." height="1376" loading="lazy" src="assets/showcase/text/text-vaster-garden-house.png" width="768"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-captain-small-storms.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: illustrated book cover." height="1200" loading="lazy" src="assets/showcase/text/text-captain-small-storms.png" width="896"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-sprout-keeper.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: sprout keeper character sheet." height="832" loading="lazy" src="assets/showcase/text/text-sprout-keeper.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/text/text-lavender-after-dark.png" rel="noreferrer" target="_blank"><img alt="Text-rich generation example: lavender after dark sign." height="832" loading="lazy" src="assets/showcase/text/text-lavender-after-dark.png" width="1248"/></a></figure>
+</div>
+</article>
+<article class="showcase-lane">
+<div class="showcase-lane-heading">
+<p class="section-kicker">Anime</p>
+<h3>Anime Characters</h3>
+<p>Character-focused generation across close-ups, full-body layouts, fantasy scenes, and environmental shots.</p>
+</div>
+<div aria-label="Anime Characters examples" class="showcase-track">
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-purple-cat.png" rel="noreferrer" target="_blank"><img alt="Anime character example with purple hair and a cat." height="720" loading="eager" src="assets/showcase/anime/anime-purple-cat.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-mecha-beach.png" rel="noreferrer" target="_blank"><img alt="Anime character example with mechanical armor." height="720" loading="eager" src="assets/showcase/anime/anime-mecha-beach.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-flower-boy.png" rel="noreferrer" target="_blank"><img alt="Anime character example in a flower field." height="832" loading="eager" src="assets/showcase/anime/anime-flower-boy.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-yellow-birds.png" rel="noreferrer" target="_blank"><img alt="Anime character example with yellow birds." height="864" loading="lazy" src="assets/showcase/anime/anime-yellow-birds.png" width="1152"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-cosmic-flame.png" rel="noreferrer" target="_blank"><img alt="Anime character example with cosmic flame effects." height="864" loading="lazy" src="assets/showcase/anime/anime-cosmic-flame.png" width="1152"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-snow-village.png" rel="noreferrer" target="_blank"><img alt="Anime scene example in a snowy village." height="1024" loading="lazy" src="assets/showcase/anime/anime-snow-village.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-white-dress-lake.png" rel="noreferrer" target="_blank"><img alt="Anime character example in a white dress by a lake." height="1152" loading="lazy" src="assets/showcase/anime/anime-white-dress-lake.png" width="864"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-blue-maid.png" rel="noreferrer" target="_blank"><img alt="Anime character example in a blue maid outfit." height="1280" loading="lazy" src="assets/showcase/anime/anime-blue-maid.png" width="720"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-blue-star.png" rel="noreferrer" target="_blank"><img alt="Anime character example with a star accessory." height="1248" loading="lazy" src="assets/showcase/anime/anime-blue-star.png" width="832"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/anime/anime-wave-dress.png" rel="noreferrer" target="_blank"><img alt="Anime character example with wave-like composition." height="1280" loading="lazy" src="assets/showcase/anime/anime-wave-dress.png" width="720"/></a></figure>
+</div>
+</article>
+<article class="showcase-lane">
+<div class="showcase-lane-heading">
+<p class="section-kicker">Style</p>
+<h3>Style Diversity</h3>
+<p>Illustration, ink painting, plush toy, sticker sheet, sketch, and graphic-design styles.</p>
+</div>
+<div aria-label="Style Diversity examples" class="showcase-track">
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-pink-elephant.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: pink plush elephant." height="720" loading="eager" src="assets/showcase/style/style-pink-elephant.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-cloud-palace.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: cloud palace illustration." height="720" loading="eager" src="assets/showcase/style/style-cloud-palace.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-neon-car-sketch.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: neon car sketch." height="720" loading="eager" src="assets/showcase/style/style-neon-car-sketch.png" width="1280"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-kimono-illustration.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: kimono illustration." height="832" loading="lazy" src="assets/showcase/style/style-kimono-illustration.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-ink-dragon.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: ink dragon." height="864" loading="lazy" src="assets/showcase/style/style-ink-dragon.png" width="1152"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-blue-forest.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: blue forest illustration." height="1024" loading="lazy" src="assets/showcase/style/style-blue-forest.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-ink-swordsman.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: ink swordsman." height="1024" loading="lazy" src="assets/showcase/style/style-ink-swordsman.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-rain-mushroom.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: rain mushroom illustration." height="1152" loading="lazy" src="assets/showcase/style/style-rain-mushroom.png" width="864"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-plush-rabbit.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: plush rabbit character." height="1248" loading="lazy" src="assets/showcase/style/style-plush-rabbit.png" width="832"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/style/style-dog-sticker-sheet.png" rel="noreferrer" target="_blank"><img alt="Style diversity example: sticker sheet." height="1280" loading="lazy" src="assets/showcase/style/style-dog-sticker-sheet.png" width="720"/></a></figure>
+</div>
+</article>
+<article class="showcase-lane">
+<div class="showcase-lane-heading">
+<p class="section-kicker">Portrait</p>
+<h3>Portraits</h3>
+<p>Close-up and environmental portraits with varied lighting, pose, material, and composition.</p>
+</div>
+<div aria-label="Portrait examples" class="showcase-track">
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-candle-profile.png" rel="noreferrer" target="_blank"><img alt="Portrait example: candle-lit profile." height="832" loading="eager" src="assets/showcase/portrait/portrait-candle-profile.png" width="1248"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-bow-light.png" rel="noreferrer" target="_blank"><img alt="Portrait example: bow and soft light." height="864" loading="eager" src="assets/showcase/portrait/portrait-bow-light.png" width="1152"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-clay-eyes.png" rel="noreferrer" target="_blank"><img alt="Portrait example: clay-like material." height="1024" loading="eager" src="assets/showcase/portrait/portrait-clay-eyes.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-forest-headphones.png" rel="noreferrer" target="_blank"><img alt="Portrait example: forest headphones." height="1024" loading="lazy" src="assets/showcase/portrait/portrait-forest-headphones.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-red-headscarf.png" rel="noreferrer" target="_blank"><img alt="Portrait example: red headscarf." height="1024" loading="lazy" src="assets/showcase/portrait/portrait-red-headscarf.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-white-braid.png" rel="noreferrer" target="_blank"><img alt="Portrait example: white braid." height="1024" loading="lazy" src="assets/showcase/portrait/portrait-white-braid.png" width="1024"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-blue-dress.png" rel="noreferrer" target="_blank"><img alt="Portrait example: blue dress." height="1152" loading="lazy" src="assets/showcase/portrait/portrait-blue-dress.png" width="864"/></a></figure>
+<figure class="showcase-card"><a class="image-link" href="assets/showcase/portrait/portrait-standing-fashion.png" rel="noreferrer" target="_blank"><img alt="Portrait example: standing fashion pose." height="1280" loading="lazy" src="assets/showcase/portrait/portrait-standing-fashion.png" width="720"/></a></figure>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="citation-title" class="section citation-section" id="citation">
+<div class="section-inner citation-grid">
+<div>
+<p class="section-kicker">Citation</p>
+<h2 id="citation-title">Cite SeFi-Image</h2>
+<p>Project citation for the current SeFi-Image manuscript.</p>
+</div>
+<div class="bibtex-panel">
+<button class="copy-button" data-copy-bibtex="" type="button">Copy BibTeX</button>
+<pre id="bibtex">@article{sefi2026sefiimage,
+  title = {SeFi-Image: A Text-to-Image Foundation Model with Semantic-First Diffusion},
+  author = {{SeFi-Team}},
+  journal = {arXiv preprint},
+  year = {2026}
+}</pre>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="section-inner footer-inner">
+<span>SeFi-Image</span>
+<a href="#top">Back to top</a>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
