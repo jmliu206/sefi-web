@@ -222,6 +222,14 @@ button {
   color: #fff;
 }
 
+.action-disabled {
+  cursor: default;
+}
+
+.action-disabled:hover {
+  transform: none;
+}
+
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
