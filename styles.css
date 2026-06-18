@@ -218,15 +218,6 @@ button {
   transform: translateY(-1px);
 }
 
-.action-disabled {
-  cursor: default;
-  opacity: 0.48;
-}
-
-.action-disabled:hover {
-  transform: none;
-}
-
 .action-primary {
   border-color: var(--dark);
   background: var(--dark);
