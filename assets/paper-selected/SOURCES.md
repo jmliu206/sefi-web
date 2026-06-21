@@ -25,7 +25,7 @@ They intentionally do not use the pre-composed paper canvas images as gallery as
 - `c-painted-portrait.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_3x4/0259.png`
 - `c-neon-illustration.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_2x3/0118.png`
 - `c-lantern-river.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/paper_sample2/text/ratio_1x1/0002 (2).png`
-- `c-candy-riot.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_9x16/0001 (2).png`
+- `c-retro-diner-car.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_9x16/0206.png`
 - `c-flower-cat.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_4x3/0001_2.png`
 - `c-red-portrait.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_2x3/0557.png`
 - `c-doll-lamb.png` <- `/Users/bytedance/Downloads/SeFi-Image/bkp/teaser3/ratio_3x4/0623.png`
